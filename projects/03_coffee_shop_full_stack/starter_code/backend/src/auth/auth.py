@@ -1,5 +1,5 @@
 import json, traceback
-from flask import request, _request_ctx_stack
+from flask import request, _request_ctx_stack, abort
 from functools import wraps
 from jose import jwt
 from urllib.request import urlopen
@@ -41,33 +41,33 @@ Known errors
 def get_token_auth_header():
     auth_header=request.headers.get('Authorization', None)
     # print(auth_header)
-    try:
-        if not auth_header:
-            raise AuthError({
-                'code': 'authorization_header_missing',
-                'description': 'Authorization header is expected.'
-            }, 401)
-        
-        header_parts = auth_header.split(" ")
 
-        if header_parts[0].lower() != 'bearer':
-            raise AuthError({
-                'code': 'invalid_header',
-                'description': 'Authorization header must start with "Bearer".'
-            }, 401)
+    if not auth_header:
+        raise AuthError({
+            'code': 'authorization_header_missing',
+            'description': 'Authorization header is expected.'
+        }, 401)
+    
+    #split the auth header parts
+    header_parts = auth_header.split(" ")
 
-        elif len(header_parts) != 2:
-            raise AuthError({
-                'code': 'invalid_header',
-                'description': 'Authorization header must be bearer token.'
-            }, 401)
+    if header_parts[0].lower() != 'bearer':
+        raise AuthError({
+            'code': 'invalid_header',
+            'description': 'Authorization header must start with "Bearer".'
+        }, 401)
 
-        token = header_parts[1]
-    except Exception as e:
-        traceback.print_exc()
+    elif len(header_parts) != 2:
+        raise AuthError({
+            'code': 'invalid_header',
+            'description': 'Authorization header must be bearer token.'
+        }, 401)
+
+    token = header_parts[1]
+    return token
     
     # print(token)
-    return token
+
 
 '''
 The get_token_auth_header() method attempts to get the header from the request and parse it.  It 
@@ -88,9 +88,12 @@ Known errors
     Abort (400) if permissions are not included in the token.
     AuthError (401) if desired permission is not in the token.
 '''
-def check_permissions(payload,permission):
+def check_permissions(permission,payload):
     if 'permissions' not in payload:
-        abort(400)
+        raise AuthError({
+            'code': 'invalid_claims',
+            'description': 'Permissions not found in JWT.'
+        }, 400)
 
     if permission not in payload['permissions']:
         raise AuthError({
