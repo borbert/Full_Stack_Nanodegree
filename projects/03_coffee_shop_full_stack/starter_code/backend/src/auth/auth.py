@@ -88,7 +88,7 @@ Known errors
     Abort (400) if permissions are not included in the token.
     AuthError (401) if desired permission is not in the token.
 '''
-def check_permissions(permission,payload):
+def check_permissions(payload,permission):
     if 'permissions' not in payload:
         raise AuthError({
             'code': 'invalid_claims',
