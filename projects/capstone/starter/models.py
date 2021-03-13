@@ -3,11 +3,14 @@ from sqlalchemy import Column, String, create_engine
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
-database_name = os.environ['DATABASE_NAME']
-db_user = os.environ['DB_USER']
-db_pass = os.environ['DB_PASS']
-db_host = os.environ['DB_HOST'] 
-database_path = os.environ['DATABASE_URL'] 
+database_name = os.getenv('DATABASE_NAME',default='listapp_dev')
+db_user = os.getenv('DB_USER',default='postgres')
+db_pass = os.getenv('DB_PASS',default=None)
+db_host = os.getenv('DB_HOST', default='localhost')
+port = os.getenv('PORT',default=5432)
+database_path = os.getenv(
+    'DATABASE_URL',default="postgres://{}:{}@{}:{}/{}".format(
+        db_user,db_pass,db_host, port, database_name))
 # "postgres://{}:{}@{}/{}".format(db_user,db_pass,db_host, database_name)
 
 db = SQLAlchemy()
