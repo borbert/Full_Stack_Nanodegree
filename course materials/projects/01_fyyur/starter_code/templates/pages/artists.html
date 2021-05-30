@@ -1,0 +1,32 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Fyyur | Artists{% endblock %}
+{% block content %}
+<ul class="items">
+	{% for artist in artists %}
+	<li>
+		<button class="delete-button" data-id="{{ artist.id }}">&cross;</button>
+		<a href="/artists/{{ artist.id }}">
+			<i class="fas fa-users"></i>
+			<div class="item">
+				<h5>{{ artist.name }} </h5>
+			</div>
+		</a>
+	</li>
+	{% endfor %}
+</ul>
+<script>
+	function DeleteButtonClicked(button) {
+	  button.onclick = event => {
+		console.log('delete button click event', event);
+		console.log('delete button id', event.target.dataset.id);
+		const artistId = event.target.dataset.id;
+		fetch('/artists/' + artistId, {
+		  method: 'DELETE',
+		})
+		.then(() => window.location = '/artists')
+	  }
+	}
+	const delete_buttons = document.querySelectorAll('.delete-button');
+	delete_buttons.forEach(DeleteButtonClicked)
+  </script>
+{% endblock %}
