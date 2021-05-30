@@ -1,0 +1,1172 @@
+{
+	"info": {
+		"_postman_id": "dd7c9c6d-7622-4ee8-9cbb-1f7c60e62f54",
+		"name": "capstone testing collection",
+		"description": "# Introduction\nWhat does your API do?\n\n# Overview\nThings that the developers should know about\n\n# Authentication\nWhat is the preferred way of using the API?\n\n# Error Codes\nWhat errors and status codes can a user expect?\n\n# Rate limit\nIs there a limit to the number of requests an user can send?",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "executive producer",
+			"item": [
+				{
+					"name": "public endpoint",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://borbertcastingagency.herokuapp.com/",
+							"protocol": "https",
+							"host": [
+								"borbertcastingagency",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://borbertcastingagency.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"borbertcastingagency",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Bob\",\n    \"full_name\":\"George Owens\",\n    \"date_of_birth\":\"09-30-1976\",\n    \"gender\":\"M\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://borbertcastingagency.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"borbertcastingagency",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update actor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"full_name\": \"Robert Owens\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://borbertcastingagency.herokuapp.com/actors/1",
+							"protocol": "https",
+							"host": [
+								"borbertcastingagency",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete actor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://borbertcastingagency.herokuapp.com/actors/1",
+							"protocol": "https",
+							"host": [
+								"borbertcastingagency",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://borbertcastingagency.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"borbertcastingagency",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create movie",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Full Metal Freedom\",\n    \"release_year\": 1978,\n    \"duration\": 120,\n    \"imdb_rating\": 8.7\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://borbertcastingagency.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"borbertcastingagency",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update movie",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"duration\": 122\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://borbertcastingagency.herokuapp.com/movies/1",
+							"protocol": "https",
+							"host": [
+								"borbertcastingagency",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete movie",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://borbertcastingagency.herokuapp.com/movies/1",
+							"protocol": "https",
+							"host": [
+								"borbertcastingagency",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create movie for next role",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Full Metal Freedom\",\n    \"release_year\": 1978,\n    \"duration\": 120,\n    \"imdb_rating\": 8.7\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://borbertcastingagency.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"borbertcastingagency",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImQ4T280WUI3M2dMdFhTV0p3Ym4xYiJ9.eyJpc3MiOiJodHRwczovL2ZzbmQtcHJvamVjdDMtYm9yYmVydC51cy5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDMwNTUyMjg3Njk0NjU2NTU5NjAiLCJhdWQiOiJodHRwOi8vMTI3LjAuMC4xOjUwMDAiLCJpYXQiOjE2MTcwNjQ1NzMsImV4cCI6MTYxNzE1MDk3MywiYXpwIjoiRXl3bWFqS0d3N2RUUnZ5T1JuUTlWY2dnalJTZTFZcGUiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTphY3RvcnMiLCJkZWxldGU6bW92aWVzIiwiZ2V0OmFjdG9ycyIsImdldDptb3ZpZXMiLCJwYXRjaDphY3RvcnMiLCJwYXRjaDptb3ZpZXMiLCJwb3N0OmFjdG9ycyIsInBvc3Q6bW92aWVzIl19.kVajSsp6lp30FOWa40J3bHV21YRlSdvFyWsWbAcyFE4g83_vWOIsDWXjkftpNZKIo1oiWae6LioUyw_nS1yn7R7T9g104Al9P6N9olCHb6O3N28OLzCcrhsBWgTbHepibmaKXo8xKj-7BH8IxsYUiazcS3uu-GTE8KuNLY3EHe4KLwR9oDJxhxLzd5RBgFOHV-FNONBMDm7OZD4Z2uv7ykoanpMkCmv8P4PSNqgkGsT7wzO0hT1FZr8S1UQHaF9H-9KUivAtSo_q269SQ2M_EuYyzPNrMugz0QQZs9s7LlNIdZkv95LhsnvfZINpY2KwYx7oVFy-i2oBiwc7rEqq3A",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "casting director",
+			"item": [
+				{
+					"name": "public endpoint",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://borbertcastingagency.herokuapp.com/",
+							"protocol": "https",
+							"host": [
+								"borbertcastingagency",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://borbertcastingagency.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"borbertcastingagency",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":2,\n    \"name\":\"Bob\",\n    \"full_name\":\"George Owens\",\n    \"date_of_birth\":\"09-30-1978\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://borbertcastingagency.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"borbertcastingagency",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update actor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"full_name\": \"Robert Owens\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://borbertcastingagency.herokuapp.com/actors/2",
+							"protocol": "https",
+							"host": [
+								"borbertcastingagency",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete actor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://borbertcastingagency.herokuapp.com/actors/2",
+							"protocol": "https",
+							"host": [
+								"borbertcastingagency",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://borbertcastingagency.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"borbertcastingagency",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create movie",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Full Metal Freedom\",\n    \"release_year\": 1978,\n    \"duration\": 120,\n    \"imdb_rating\": 8.7\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://borbertcastingagency.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"borbertcastingagency",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update movie",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"duration\": 122\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://borbertcastingagency.herokuapp.com/movies/2",
+							"protocol": "https",
+							"host": [
+								"borbertcastingagency",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete movie",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://borbertcastingagency.herokuapp.com/movies/1",
+							"protocol": "https",
+							"host": [
+								"borbertcastingagency",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImQ4T280WUI3M2dMdFhTV0p3Ym4xYiJ9.eyJpc3MiOiJodHRwczovL2ZzbmQtcHJvamVjdDMtYm9yYmVydC51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjAxNzYyNDQ5ZGJkMWEwMDY4ZjBhZGZkIiwiYXVkIjoiaHR0cDovLzEyNy4wLjAuMTo1MDAwIiwiaWF0IjoxNjE3MDY1MDQ1LCJleHAiOjE2MTcxNTE0NDUsImF6cCI6IkV5d21haktHdzdkVFJ2eU9SblE5VmNnZ2pSU2UxWXBlIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZ2V0OmFjdG9ycyIsImdldDptb3ZpZXMiLCJwYXRjaDphY3RvcnMiLCJwYXRjaDptb3ZpZXMiLCJwb3N0OmFjdG9ycyJdfQ.XxRvpG4PV09iX6jkPsqTnpbYuGe1woSoTR7KxrCn5y2YMQLPFyqXd6VvxkwJhMRWNccmX3tTrpeP4mQwCTkimVdJidXTQ-vYBjHWKv1auwg_J_fKEKTYctY_zGpPxB0daEDrO-YyFlNZbY8GHBzpORKtW6CoC9j044pIoSJKQoQIiawk29FbUe6N5BMSVt6KXt5vZ5pJnAjTvnNRY2A3aug2aDK9RTwWnYLPoomrpPsQsbnP9FoX6JVe8ve3pLV5Wh-JHqdHc7XMoGmYudX1BgbQkfeDE8dP0bdx939LKwNC27FT4epzz3WrLQli6609bLxGn-e-_4g3VV5OTuR5zQ",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "casting assistant",
+			"item": [
+				{
+					"name": "public endpoint",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://borbertcastingagency.herokuapp.com/",
+							"protocol": "https",
+							"host": [
+								"borbertcastingagency",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://borbertcastingagency.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"borbertcastingagency",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post actors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":2,\n    \"name\":\"Bob\",\n    \"full_name\":\"George Owens\",\n    \"date_of_birth\":\"09-30-1978\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://borbertcastingagency.herokuapp.com/actors",
+							"protocol": "https",
+							"host": [
+								"borbertcastingagency",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update actor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"full_name\": \"Robert Owens\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://borbertcastingagency.herokuapp.com/actors/1",
+							"protocol": "https",
+							"host": [
+								"borbertcastingagency",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete actor",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://borbertcastingagency.herokuapp.com/actors/1",
+							"protocol": "https",
+							"host": [
+								"borbertcastingagency",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"actors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get movies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://borbertcastingagency.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"borbertcastingagency",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create movie",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Full Metal Freedom\",\n    \"release_year\": 1978,\n    \"duration\": 120,\n    \"imdb_rating\": 8.7\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://borbertcastingagency.herokuapp.com/movies",
+							"protocol": "https",
+							"host": [
+								"borbertcastingagency",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update movie",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"duration\": 122\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://borbertcastingagency.herokuapp.com/movies/1",
+							"protocol": "https",
+							"host": [
+								"borbertcastingagency",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete movie",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://borbertcastingagency.herokuapp.com/movies/1",
+							"protocol": "https",
+							"host": [
+								"borbertcastingagency",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"movies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImQ4T280WUI3M2dMdFhTV0p3Ym4xYiJ9.eyJpc3MiOiJodHRwczovL2ZzbmQtcHJvamVjdDMtYm9yYmVydC51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjAxNzY1ZDJkZjdiNWEwMDcxOGU2NTA2IiwiYXVkIjoiaHR0cDovLzEyNy4wLjAuMTo1MDAwIiwiaWF0IjoxNjE3MDY0OTA0LCJleHAiOjE2MTcxNTEzMDQsImF6cCI6IkV5d21haktHdzdkVFJ2eU9SblE5VmNnZ2pSU2UxWXBlIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyJdfQ.jybC2Wao36WimNKXkdwKuDlz7jFnxiP6cwDKl0509Nck-L3b5mx4CjgACb8MXY7YFqUpwRtwsl4txCj-gzfxElb25JgluopEAklRnpy3jX7bSHknrQVdHw8mxszLqb4BZAD94ouf56OdJWN8BK8dBWoX2eG3XKUT-RcFrugq5LzKUHvIwYNHLJSvrH5tDe7YDuUor_7WvikAdmppnK7yUrQ_oNb5atvyk9BiwMjtWURahmufT-JIWiXONw1IB-_iMF9dlPxYNi0ZNdxRPMkfaEuxwVkciRbRs5OOKXb23UZusA2vqPZ8EFrMVvmXVjti16C8HALaeU3mgh32Sv5sNw",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}
